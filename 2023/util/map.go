@@ -2,11 +2,12 @@ package util
 
 import "sort"
 
+// RangeMap
 // https://gist.github.com/d-schmidt/cd85136990de250df38956432517b253
 
 type Range struct {
 	L int
-	U int
+	R int
 }
 
 type RangeMap struct {
@@ -25,8 +26,8 @@ func (rm *RangeMap) Get(key int) (int, int, int, bool) {
 	})
 
 	i -= 1
-	if i >= 0 && i < len(rm.Keys) && key <= rm.Keys[i].U {
-		return rm.Values[i], rm.Keys[i].L, rm.Keys[i].U, true
+	if i >= 0 && i < len(rm.Keys) && key <= rm.Keys[i].R {
+		return rm.Values[i], rm.Keys[i].L, rm.Keys[i].R, true
 	}
 
 	return -1, -1, -1, false
