@@ -2,6 +2,8 @@ package day01
 
 import (
 	"unicode"
+
+	"advent-of-code/util"
 )
 
 func calc(line string) int {
@@ -18,9 +20,10 @@ func calc(line string) int {
 	return (left * 10) + right
 }
 
-func doCalc(lines []string, f func(string) int) any {
+func doCalc(in string, f func(string) int) any {
 	res := 0
 
+	lines := util.PrepInput(in)
 	for _, line := range lines {
 		res += f(line)
 	}
@@ -28,6 +31,6 @@ func doCalc(lines []string, f func(string) int) any {
 	return res
 }
 
-func (s Solver) P1(in []string) any {
+func (s Solver) P1(in string) any {
 	return doCalc(in, calc)
 }

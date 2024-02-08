@@ -30,7 +30,8 @@ func findAllNums(lines []string) map[int]*util.RangeMap {
 	return numPos
 }
 
-func (s Solver) P1(lines []string) any {
+func (s Solver) P1(in string) any {
+	lines := util.PrepInput(in)
 	numPos := findAllNums(lines)
 
 	res := 0

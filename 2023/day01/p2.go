@@ -37,6 +37,6 @@ func calc2(line string) int {
 	return (left * 10) + right
 }
 
-func (s Solver) P2(in []string) any {
+func (s Solver) P2(in string) any {
 	return doCalc(in, calc2)
 }

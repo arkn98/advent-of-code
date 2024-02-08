@@ -1,13 +1,17 @@
 package day04
 
-func (s Solver) P2(input []string) any {
-	n := len(input)
+import "advent-of-code/util"
+
+func (s Solver) P2(in string) any {
+	lines := util.PrepInput(in)
+
+	n := len(lines)
 	counts := make([]int, n)
 	for i := 0; i < n; i++ {
 		counts[i] = 1
 	}
 
-	for i, line := range input {
+	for i, line := range lines {
 		matchCount := processLine(line)
 
 		for j := 1; j <= matchCount; j++ {

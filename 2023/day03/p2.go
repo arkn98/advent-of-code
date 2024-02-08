@@ -1,8 +1,13 @@
 package day03
 
-import "unicode"
+import (
+	"unicode"
 
-func (s Solver) P2(lines []string) any {
+	"advent-of-code/util"
+)
+
+func (s Solver) P2(in string) any {
+	lines := util.PrepInput(in)
 	numPos := findAllNums(lines)
 
 	res := 0

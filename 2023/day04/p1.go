@@ -4,6 +4,8 @@ import (
 	"math"
 	"strconv"
 	"strings"
+
+	"advent-of-code/util"
 )
 
 func processLine(line string) int {
@@ -28,10 +30,11 @@ func processLine(line string) int {
 	return matchCount
 }
 
-func (s Solver) P1(input []string) any {
+func (s Solver) P1(in string) any {
 	res := 0
 
-	for _, line := range input {
+	lines := util.PrepInput(in)
+	for _, line := range lines {
 		matchCount := processLine(line)
 		res += int(math.Pow(2, float64(matchCount-1)))
 	}

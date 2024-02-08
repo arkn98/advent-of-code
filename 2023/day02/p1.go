@@ -3,6 +3,8 @@ package day02
 import (
 	"strconv"
 	"strings"
+
+	"advent-of-code/util"
 )
 
 var limits = map[string]int{
@@ -42,9 +44,10 @@ func calc(line string) int {
 	return gameID
 }
 
-func doCalc(lines []string, f func(line string) int) any {
+func doCalc(in string, f func(line string) int) any {
 	res := 0
 
+	lines := util.PrepInput(in)
 	for _, line := range lines {
 		res += f(line)
 	}
@@ -52,6 +55,6 @@ func doCalc(lines []string, f func(line string) int) any {
 	return res
 }
 
-func (s Solver) P1(in []string) any {
+func (s Solver) P1(in string) any {
 	return doCalc(in, calc)
 }
